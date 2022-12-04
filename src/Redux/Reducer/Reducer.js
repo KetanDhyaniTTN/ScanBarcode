@@ -5,7 +5,9 @@ const INITIAL_STATE={
 }
 
 const showReducer=(state=INITIAL_STATE,action)=>{
+  
   const{type,payload}=action;
+  
   switch(type){
     case SHOW_DATA:
     return{
