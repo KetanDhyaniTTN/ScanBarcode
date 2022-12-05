@@ -1,14 +1,34 @@
 import React, { Component } from "react";
-import { SafeAreaView, View, Text, StyleSheet, Image,FlatList, TouchableOpacity} from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import { showData } from "../Redux/Actions/Action";
-class Home extends Component {
 
-componentDidMount(){
-    this.props.showData()
-}
+
+class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            // clicked: false,
+            click: false,
+            index: null
+        };
+    }
+
+    handleBtnClick = (index) => {
+        this.setState({
+            click: !this.state.click,
+            index: index
+        })
+    }
+    
+
+
+
+    componentDidMount() {
+        this.props.showData()
+    }
     render() {
-        const {show}=this.props
+        const { show } = this.props
         return (
             <SafeAreaView style={styles.header}>
                 <View style={styles.headerView}>
@@ -23,34 +43,51 @@ componentDidMount(){
 
                     </View>
                 </View>
+                
                 <FlatList style={styles.flatTop}
-                  data={show.data}
-                  renderItem={({item})=>{
-                     return(
-                        <View style={styles.FlatView}>
-                            <TouchableOpacity style={styles.Titlebuttons}
-                            >
-                             <Text style={styles.textTitle}>{item.title}</Text>
-                             <Image style={styles.arrowDown}
-                             source={require('../../Images/icons8-more-than-48.png')}/>
-                            </TouchableOpacity>
-                        </View>
-                     )
-                  }}/>
+                    data={show.data}
+                    renderItem={({ item, index }) => {
+                        return (
+                            
+                            <View style={styles.mainView}>
+                                <View style={styles.flatView}>
+                                <TouchableOpacity onPress={() => this.handleBtnClick(index)} style={styles.Showbuttons}>
+                                    <Text style={styles.textTitle}>{item.title}</Text>
+                                    <Image style={styles.arrowDown} source={this.state.click ? require('../../Images/less.png') : require('../../Images/more.png')} />
+                                </TouchableOpacity>
+                                </View>
+                                {(this.state.click && this.state.index === index) &&
 
-               
+                                    <FlatList
+                                        data={show.data[index].details}
+                                        renderItem={({ item}) => {
+                                            return (
+                                                <View style={styles.storeView}>
+                                                    <TouchableOpacity style={styles.storeTitle}
+                                                    onPress={()=>this.props.navigation.navigate('SelectStore')}>
+                                                        <Text style={styles.flatTitle}>{item}</Text>
+                                                    </TouchableOpacity>
+                                                </View>
+                                               
+                                            )
+                                        }} />}
+                            </View>
+                        )
+                    }} />
+
+
             </SafeAreaView>
         )
     }
 }
 
-const mapStateToProps=state=>{
-    return{
-  show:state.showReducer
-}
+const mapStateToProps = state => {
+    return {
+        show: state.showReducer
+    }
 }
 
-const mapDispatchToProps={
+const mapDispatchToProps = {
     showData
 }
 
@@ -61,13 +98,13 @@ const styles = StyleSheet.create({
     headerView: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding:9
+        padding: 9
     },
     SelectConcept: {
         color: 'white',
         fontSize: 24,
         fontWeight: '600',
-        marginLeft:10
+        marginLeft: 10
     },
     rightView: {
         flexDirection: 'row',
@@ -79,38 +116,80 @@ const styles = StyleSheet.create({
         height: 20,
         width: 20,
     },
-    flatTop:{
-      
+    flatTop: {
+
     },
-   
-    FlatView:{
-        backgroundColor:'white',
-        flexDirection:'row',
-        justifyContent:'center',
+    mainView: {
+        flexDirection: 'column',
+        backgroundColor: 'white',
+        justifyContent: 'center',
        
     },
-    Titlebuttons:{
-        backgroundColor:'white',
-        width:'90%',
-       // height:50,
-        marginVertical:10,
-        borderColor:('rgb(236,244,245)'),
-        borderWidth:2,
-        flexDirection:'row',
+
+    flatView: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    storeView: {
+        flexDirection: 'column',
+        backgroundColor: 'white',
+        marginHorizontal:20,
+        width:'100%'
+    },
+    storeButton: {
+
+    },
+    flatTitle: {
+        color: 'white'
+    },
+    Showbuttons: {
+        backgroundColor: 'white',
+        width: '90%',
+        marginVertical: 10,
+        borderColor: ('rgb(236,244,245)'),
+        borderWidth: 2,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 10,
+        paddingVertical: 14,
+    },
+    Titlebuttons: {
+        backgroundColor: 'white',
+        width: '90%',
+        marginVertical: 10,
+        borderColor: ('rgb(236,244,245)'),
+        borderWidth: 2,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 10,
+        paddingVertical: 14
+    },
+    textTitle: {
+        color: ('rgb(48,59,85)'),
+        fontWeight: 'bold',
+        fontSize: 15,
+    },
+    arrowDown: {
+        height: 15,
+        width: 15
+    },
+    storeTitle: {
+        backgroundColor: 'white',
+        width: '90%',
+        marginVertical: 10,
+        borderColor: ('rgb(236,244,245)'),
+        borderBottomWidth: 2,
+        flexDirection: 'row',
         justifyContent:'space-between',
-        paddingHorizontal:10,
-        paddingVertical:14
+        paddingHorizontal:20,
+        paddingVertical: 6
     },
-    textTitle:{
-        color:('rgb(48,59,85)'),
-        fontWeight:'bold',
-        fontSize:15,
-       // marginLeft:15
+    flatTitle: {
+        color: ('rgb(48,59,85)'),
     },
-    arrowDown:{
-        height:15,
-        width:15
-    }
 
 })
-export default connect(mapStateToProps,mapDispatchToProps) (Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
+
+

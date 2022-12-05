@@ -1,38 +1,111 @@
 {
     "DATA":[
         {
-          "title":"Coop"
+          "title":"Coop",
+          "store":"Coop Online Goteborg Kpl",
+          "details":[
+            "Select Coop",
+            "Select Coop",
+            "Select Coop",
+            "Select Coop"
+          ]
+          
+          
         },
 
         {
-            "title":"HemKop"
+            "title":"HemKop",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop1",
+              "Select Coop1",
+              "Select Coop1",
+              "Select Coop1"
+            ]
+            
         },
         {
-            "title":"Ica"
+            "title":"Ica",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop2",
+              "Select Coop2",
+              "Select Coop22",
+              "Select Coop"
+            ]
+            
           },
 
           {
-            "title":"Willys"
+            "title":"Willys",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop3",
+              "Select Coop3",
+              "Select Coop3",
+              "Select Coop3"
+            ]
+            
           },
 
           {
-            "title":"City Gross"
+            "title":"City Gross",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop",
+              "Select Coop",
+              "Select Coop",
+              "Select Coop"
+            ]
+           
           },
 
           {
-            "title":"Lidl"
+            "title":"Lidl",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop",
+              "Select Coop",
+              "Select Coop",
+              "Select Coop"
+            ]
+            
           },
 
           {
-            "title":"Dollarstore"
+            "title":"Dollarstore",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop",
+              "Select Coop",
+              "Select Coop",
+              "Select Coop"
+            ]
+            
           },
 
           {
-            "title":"Normal"
+            "title":"Normal",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop",
+              "Select Coop",
+              "Select Coop",
+              "Select Coop"
+            ]
+            
           },
 
           {
-            "title":"Rusta"
+            "title":"Rusta",
+            "store":"Coop Online Goteborg Kpl",
+            "details":[
+              "Select Coop",
+              "Select Coop",
+              "Select Coop",
+              "Select Coop"
+            ]
+           
           }
 
     ]
