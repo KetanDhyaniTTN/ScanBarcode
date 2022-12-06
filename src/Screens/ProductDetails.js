@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { SafeAreaView, StyleSheet, View, Image, Text, TouchableOpacity, TextInput,ScrollView} from "react-native";
 
 class ProductDetails extends Component {
+    
     render() {
         return (
             <SafeAreaView style={styles.header}>
                 <View style={styles.topView}>
-                    <TouchableOpacity>
+                    <TouchableOpacity 
+                    onPress={()=>this.props.navigation.goBack()}>
                     <Image style={styles.arrow}
                         source={require('../../Images/icons8-more-than-50.png')} />
                         </TouchableOpacity>
@@ -41,13 +43,17 @@ class ProductDetails extends Component {
                                     <View style={styles.type}>
                                         <TextInput
                                             style={styles.input}
+                                            keyboardType={"numeric"}
+                                            
                                         />
                                     </View>
-                                    <TouchableOpacity style={styles.st}>
+                                    <TouchableOpacity style={ styles.st}
+                                    >
                                         <Text style={styles.weightST}>ST</Text>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity style={styles.kg}>
+                                    <TouchableOpacity style={styles.kg}
+                                    >
                                         <Text style={styles.weightKG}>KG</Text>
                                     </TouchableOpacity>
 
@@ -57,7 +63,8 @@ class ProductDetails extends Component {
                             <View style={styles.Price}>
                                 <Text style={styles.price}>Price(SEK)</Text>
                                 <TextInput
-                                    style={styles.blackInput} />
+                                    style={styles.blackInput} 
+                                    keyboardType={"numeric"}/>
                             </View>
 
                         </View>
@@ -270,7 +277,7 @@ const styles = StyleSheet.create({
     quantity: {
         borderColor: ('rgb(45,74,89)'),
         borderRightWidth: 0.2,
-        width: 200,
+        width: 180,
         paddingHorizontal: 18
     },
     Quantity: {

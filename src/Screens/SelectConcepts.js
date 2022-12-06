@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SafeAreaView, View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, Image, FlatList, TouchableOpacity, StatusBar } from "react-native";
 import { connect } from "react-redux";
 import { showData } from "../Redux/Actions/Action";
 
@@ -8,9 +8,9 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // clicked: false,
             click: false,
-            index: null
+            index: null,
+
         };
     }
 
@@ -20,9 +20,6 @@ class Home extends Component {
             index: index
         })
     }
-    
-
-
 
     componentDidMount() {
         this.props.showData()
@@ -31,6 +28,7 @@ class Home extends Component {
         const { show } = this.props
         return (
             <SafeAreaView style={styles.header}>
+                <StatusBar barStyle='light-content' />
                 <View style={styles.headerView}>
                     <Text style={styles.SelectConcept}>Select Concept</Text>
 
@@ -43,34 +41,45 @@ class Home extends Component {
 
                     </View>
                 </View>
-                
+
                 <FlatList style={styles.flatTop}
                     data={show.data}
                     renderItem={({ item, index }) => {
                         return (
-                            
+
                             <View style={styles.mainView}>
                                 <View style={styles.flatView}>
-                                <TouchableOpacity onPress={() => this.handleBtnClick(index)} style={styles.Showbuttons}>
-                                    <Text style={styles.textTitle}>{item.title}</Text>
-                                    <Image style={styles.arrowDown} source={this.state.click ? require('../../Images/less.png') : require('../../Images/more.png')} />
-                                </TouchableOpacity>
-                                </View>
-                                {(this.state.click && this.state.index === index) &&
+                                    <View style={styles.Showbuttons}>
+                                        <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-between'}}
+                                        onPress={() => this.handleBtnClick(index)}>
+                                        <Text style={styles.textTitle}>{item.title}</Text>
+                                        <Image style={styles.arrowDown} source={this.state.index === index && this.state.click ? require('../../Images/less.png') : require('../../Images/more.png')} />
+                                        </TouchableOpacity>
 
-                                    <FlatList
-                                        data={show.data[index].details}
-                                        renderItem={({ item}) => {
-                                            return (
-                                                <View style={styles.storeView}>
-                                                    <TouchableOpacity style={styles.storeTitle}
-                                                    onPress={()=>this.props.navigation.navigate('SelectStore')}>
-                                                        <Text style={styles.flatTitle}>{item}</Text>
-                                                    </TouchableOpacity>
-                                                </View>
+                                        {(this.state.click && this.state.index === index) &&
+                                            <FlatList
+                                                data={show.data[index].details[index].selectStore}
+                                                renderItem={({ item }) => {
+                                                    return (
+                                                        <View style={styles.storeView}>
+                                                            <TouchableOpacity style={styles.storeTitle}
+                                                                onPress={() => this.props.navigation.navigate('SelectStore')}>
+                                                                <Text style={styles.flatTitle}>{item}</Text>
+                                                            </TouchableOpacity>
+                                                        </View>
+
+                                                    )
+                                                }} />}
+                                    </View>
+                                    
+                                    </View>
+                                    
+                                
+                                
                                                
-                                            )
-                                        }} />}
+                                   
+
+                                
                             </View>
                         )
                     }} />
@@ -117,24 +126,28 @@ const styles = StyleSheet.create({
         width: 20,
     },
     flatTop: {
-
-    },
-    mainView: {
-        flexDirection: 'column',
-        backgroundColor: 'white',
-        justifyContent: 'center',
+        backgroundColor:'white',
        
     },
+    // mainView: {
+    //     flexDirection: 'column',
+    //     backgroundColor: 'white',
+    //     justifyContent: 'center',
+
+    // },
 
     flatView: {
         flexDirection: 'row',
         justifyContent: 'center',
+        
     },
     storeView: {
         flexDirection: 'column',
-        backgroundColor: 'white',
-        marginHorizontal:20,
-        width:'100%'
+        marginTop:5,
+       // backgroundColor: 'white',
+        marginHorizontal:8,
+        width: 350,
+       
     },
     storeButton: {
 
@@ -148,22 +161,22 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         borderColor: ('rgb(236,244,245)'),
         borderWidth: 2,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
+        borderRadius:5,
         paddingHorizontal: 10,
         paddingVertical: 14,
     },
-    Titlebuttons: {
-        backgroundColor: 'white',
-        width: '90%',
-        marginVertical: 10,
-        borderColor: ('rgb(236,244,245)'),
-        borderWidth: 2,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingHorizontal: 10,
-        paddingVertical: 14
-    },
+    // Titlebuttons: {
+    //     backgroundColor: 'white',
+    //     width: '90%',
+    //     marginVertical: 10,
+    //     borderColor: ('rgb(236,244,245)'),
+    //     borderWidth: 2,
+    //     flexDirection: 'row',
+    //     justifyContent: 'space-between',
+    //     paddingHorizontal: 10,
+    //     paddingVertical: 14
+    // },
     textTitle: {
         color: ('rgb(48,59,85)'),
         fontWeight: 'bold',
@@ -180,8 +193,8 @@ const styles = StyleSheet.create({
         borderColor: ('rgb(236,244,245)'),
         borderBottomWidth: 2,
         flexDirection: 'row',
-        justifyContent:'space-between',
-        paddingHorizontal:20,
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
         paddingVertical: 6
     },
     flatTitle: {
@@ -193,3 +206,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 
 
+// onPress={() => this.handleBtnClick(index)}

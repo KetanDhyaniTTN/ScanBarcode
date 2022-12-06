@@ -1,112 +1,134 @@
 {
-    "DATA":[
+  "DATA": [
+    {
+      "title": "Coop",
+      "store": "Coop Online Goteborg Kpl",
+      
+      "details": [
         {
-          "title":"Coop",
-          "store":"Coop Online Goteborg Kpl",
-          "details":[
+          "selectStore": [
+            "Coop Online Goteborg Kpl",
+            "Coop Online Stockholm Kpl",
+            "Coop Online Lysekil Kpl",
+            "Coop Online Maimo Kpl"
+            
+          ]
+        }
+        
+      ]
+    },
+    {
+      "title": "HemKop",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
+        {
+          "selectStore": [
+            "Select Coopvhvjj",
+            "Select Coopvhh",
+            "Select Coopyuii",
+            "Select Coopknkmkm"
+          ]
+        }
+        
+      ]
+    },
+    {
+      "title": "Ica",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
+        {
+          "selectStore": [
             "Select Coop",
             "Select Coop",
             "Select Coop",
             "Select Coop"
           ]
-          
-          
-        },
-
+        }
+      ]
+    },
+    {
+      "title": "Willys",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
         {
-            "title":"HemKop",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop1",
-              "Select Coop1",
-              "Select Coop1",
-              "Select Coop1"
-            ]
-            
-        },
+          "selectStore": [
+            "Select Coop",
+            "Select Coop",
+            "Select Coop",
+            "Select Coop"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "City Gross",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
         {
-            "title":"Ica",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop2",
-              "Select Coop2",
-              "Select Coop22",
-              "Select Coop"
-            ]
-            
-          },
-
-          {
-            "title":"Willys",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop3",
-              "Select Coop3",
-              "Select Coop3",
-              "Select Coop3"
-            ]
-            
-          },
-
-          {
-            "title":"City Gross",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop",
-              "Select Coop",
-              "Select Coop",
-              "Select Coop"
-            ]
-           
-          },
-
-          {
-            "title":"Lidl",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop",
-              "Select Coop",
-              "Select Coop",
-              "Select Coop"
-            ]
-            
-          },
-
-          {
-            "title":"Dollarstore",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop",
-              "Select Coop",
-              "Select Coop",
-              "Select Coop"
-            ]
-            
-          },
-
-          {
-            "title":"Normal",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop",
-              "Select Coop",
-              "Select Coop",
-              "Select Coop"
-            ]
-            
-          },
-
-          {
-            "title":"Rusta",
-            "store":"Coop Online Goteborg Kpl",
-            "details":[
-              "Select Coop",
-              "Select Coop",
-              "Select Coop",
-              "Select Coop"
-            ]
-           
-          }
-
-    ]
+          "selectStore": [
+            "Select Coop",
+            "Select Coop",
+            "Select Coop",
+            "Select Coop"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lidl",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
+        {
+          "selectStore": [
+            "Select Coop",
+            "Select Coop",
+            "Select Coop",
+            "Select Coop"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Dollarstore",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
+        {
+          "selectStore": [
+            "Select Coop",
+            "Select Coop",
+            "Select Coop",
+            "Select Coop"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Normal",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
+        {
+          "selectStore": [
+            "Select Coop",
+            "Select Coop",
+            "Select Coop",
+            "Select Coop"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rusta",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
+        {
+          "selectStore": [
+            "Select Coop",
+            "Select Coop",
+            "Select Coop",
+            "Select Coop"
+          ]
+        }
+      ]
+    }
+  ]
 }

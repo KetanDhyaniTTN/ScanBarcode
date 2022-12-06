@@ -1,25 +1,84 @@
-import React, { Component } from "react";
-import { SafeAreaView,View,Text,StyleSheet,TouchableOpacity,Image} from "react-native";
+import React, { useState } from "react";
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, FlatList, Modal } from "react-native";
+import { DATA } from "../Data";
 
-const SelectStore=(navigation)=>{
-        return(
-            <SafeAreaView style={styles.header}>
-              <View style={styles.topView}>
-                    <TouchableOpacity 
+const SelectStore = ({ navigation }) => {
+
+    const [modalVisible, setmodalVisible] = useState(false)
+
+    return (
+        <SafeAreaView style={styles.header}>
+            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+
+            <View style={styles.topView}>
+                <TouchableOpacity
                     onPress={() => navigation.goBack()}>
                     <Image style={styles.arrow}
                         source={require('../../Images/icons8-more-than-50.png')} />
-                        </TouchableOpacity>
-                    <Text style={styles.product}>Select Store</Text>
-                    
-                </View>
-            </SafeAreaView>
-        )
-        }
+                </TouchableOpacity>
+                <Text style={styles.product}>Select Store</Text>
+            </View>
+            <Image style={styles.search}
+            source={require('../../Images/icons8-search-30.png')}/>
+            </View>
 
-const styles=StyleSheet.create({
-    header:{
-        backgroundColor:('rgb(45,74,89)'),
+
+            <View style={styles.container}>
+                <Modal
+                    animationType="slide"
+                    visible={modalVisible}
+                    transparent={true}>
+
+
+                    <SafeAreaView style={styles.firstView}>
+                        <View style={{backgroundColor:'black',height:'100%',opacity:0.7}}>
+
+                        </View>
+
+                        <View style={styles.Barcode}>
+                            <View style={styles.shopDetail}>
+                            <Text style={{color:'black',textAlign:'center',fontWeight:'800'}}>Coop Online Goteborg Kpl</Text>
+                            <Text style={{color:'black',textAlign:'center'}}>Konsumentplocklager 1 Goteborg</Text>
+                            </View>
+                            <Image style={styles.scan}
+                            source={require('../../Images/icons8-barcode-60.png')}/>
+                        <TouchableOpacity style={styles.barcodeButton}
+                            onPress={() => { setmodalVisible(!modalVisible) ,  navigation.navigate('ProductDetails')}}>
+                            <Text style={styles.barcodeText}>Scan Barcode</Text>
+                        </TouchableOpacity>
+                        </View>
+                    </SafeAreaView>
+
+                </Modal>
+            </View>
+
+
+
+
+
+            <FlatList style={styles.flatView}
+                data={DATA}
+                renderItem={({ item }) => {
+                    return (
+
+                        <TouchableOpacity style={styles.buttonStore}
+                            onPress={() => { setmodalVisible(!modalVisible) }}>
+                            <Text style={styles.nameText}>{item.name}</Text>
+                            <Text style={styles.titleText}>{item.detail}</Text>
+                        </TouchableOpacity>
+
+                    )
+                }} />
+
+
+
+        </SafeAreaView>
+    )
+}
+
+const styles = StyleSheet.create({
+    header: {
+        backgroundColor: ('rgb(45,74,89)'),
     },
     topView: {
         flexDirection: 'row',
@@ -30,11 +89,73 @@ const styles=StyleSheet.create({
         height: 30,
         width: 25,
     },
+    search:{
+        height: 25,
+        width: 25,
+        marginRight:20,
+        marginTop:15
+    },
     product: {
         fontSize: 25,
         color: 'white',
         fontWeight: '600',
         marginLeft: 10
     },
+    flatView: {
+        backgroundColor: 'white',
+        height: '100%'
+    },
+    buttonStore: {
+        shadowOpacity:0.3,
+        shadowOffset:{width:1,height:1},
+        margin: 10,
+        marginTop: 20,
+        paddingVertical: 15,
+        width: '90%',
+        backgroundColor: 'white',
+        borderColor: 'white',
+        borderWidth: 1,
+        alignSelf: 'center'
+    },
+    nameText: {
+        color: 'black',
+        marginLeft: 10,
+        fontWeight: 'bold'
+    },
+    titleText: {
+        marginLeft: 10,
+        marginTop: 5
+    },
+    firstView:{
+       flex:1,
+       justifyContent:'flex-end',
+    },
+    Barcode:{
+      backgroundColor:'white',
+      paddingVertical:10
+    },
+    shopDetail:{
+     // marginTop:10
+    },
+    scan:{
+        height:80,
+        width:80,
+        alignSelf:'center',
+        marginTop:6
+    },
+    barcodeButton:{
+        backgroundColor:('rgb(90,127,127)'),
+        paddingVertical:10,
+        marginHorizontal:25,
+        borderRadius:5,
+        //marginTop:10,
+    },
+    barcodeText:{
+        textAlign:'center',
+        fontSize:18,
+        color:'white',
+        fontWeight:'700'
+    }
+
 })
 export default SelectStore;
