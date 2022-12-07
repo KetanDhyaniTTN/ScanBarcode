@@ -6,7 +6,7 @@ import SelectStore from "./SelectStore";
 import ProductDetails from "./ProductDetails";
 const Stack=createNativeStackNavigator()
 
-class NavigationScreen extends Component{
+class NavigationScreens extends Component{
     render(){
         return(
             <NavigationContainer>
@@ -22,4 +22,4 @@ class NavigationScreen extends Component{
         )
     }
 }
-export default NavigationScreen;
+export default NavigationScreens;

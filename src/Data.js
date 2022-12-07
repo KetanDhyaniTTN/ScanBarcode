@@ -28,4 +28,8 @@ export const DATA=[
         name:'Coop Online Malmo',
         detail:'Coop Online 1 Online'
     },
+    store={
+        name:'Coop Online Lysekil',
+        detail:'Coop Online 1 Online'
+    },
 ]

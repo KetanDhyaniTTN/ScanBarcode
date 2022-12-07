@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, FlatList, Modal } from "react-native";
 import { DATA } from "../Data";
 
-const SelectStore = ({ navigation }) => {
-
-    const [modalVisible, setmodalVisible] = useState(false)
-
+const SelectStore = ({ navigation}) => {
+    const [showModal, setshowModal] = useState(false)
     return (
         <SafeAreaView style={styles.header}>
-            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+            <View style={styles.headerView}>
 
             <View style={styles.topView}>
                 <TouchableOpacity
@@ -26,24 +24,21 @@ const SelectStore = ({ navigation }) => {
             <View style={styles.container}>
                 <Modal
                     animationType="slide"
-                    visible={modalVisible}
-                    transparent={true}>
-
-
+                    visible={showModal}
+                     transparent={true}>
+                    
                     <SafeAreaView style={styles.firstView}>
-                        <View style={{backgroundColor:'black',height:'100%',opacity:0.7}}>
-
+                        <View style={styles.modalView}>
                         </View>
-
                         <View style={styles.Barcode}>
                             <View style={styles.shopDetail}>
-                            <Text style={{color:'black',textAlign:'center',fontWeight:'800'}}>Coop Online Goteborg Kpl</Text>
-                            <Text style={{color:'black',textAlign:'center'}}>Konsumentplocklager 1 Goteborg</Text>
+                            <Text style={styles.shopOnline}>Coop Online Goteborg Kpl</Text>
+                            <Text style={styles.shopName}>Konsumentplocklager 1 Goteborg</Text>
                             </View>
                             <Image style={styles.scan}
                             source={require('../../Images/icons8-barcode-60.png')}/>
                         <TouchableOpacity style={styles.barcodeButton}
-                            onPress={() => { setmodalVisible(!modalVisible) ,  navigation.navigate('ProductDetails')}}>
+                            onPress={() => { setshowModal(!showModal),navigation.navigate('ProductDetails')}}>
                             <Text style={styles.barcodeText}>Scan Barcode</Text>
                         </TouchableOpacity>
                         </View>
@@ -51,27 +46,17 @@ const SelectStore = ({ navigation }) => {
 
                 </Modal>
             </View>
-
-
-
-
-
             <FlatList style={styles.flatView}
                 data={DATA}
                 renderItem={({ item }) => {
                     return (
-
                         <TouchableOpacity style={styles.buttonStore}
-                            onPress={() => { setmodalVisible(!modalVisible) }}>
+                            onPress={() => { setshowModal(!showModal) }}>
                             <Text style={styles.nameText}>{item.name}</Text>
                             <Text style={styles.titleText}>{item.detail}</Text>
                         </TouchableOpacity>
-
                     )
                 }} />
-
-
-
         </SafeAreaView>
     )
 }
@@ -79,6 +64,10 @@ const SelectStore = ({ navigation }) => {
 const styles = StyleSheet.create({
     header: {
         backgroundColor: ('rgb(45,74,89)'),
+    },
+    headerView:{
+        flexDirection:'row',
+        justifyContent:'space-between'
     },
     topView: {
         flexDirection: 'row',
@@ -103,18 +92,18 @@ const styles = StyleSheet.create({
     },
     flatView: {
         backgroundColor: 'white',
-        height: '100%'
+        height: '100%',
+        
     },
     buttonStore: {
         shadowOpacity:0.3,
         shadowOffset:{width:1,height:1},
         margin: 10,
-        marginTop: 20,
-        paddingVertical: 15,
+        marginTop:20,
+        paddingVertical:10,
         width: '90%',
         backgroundColor: 'white',
-        borderColor: 'white',
-        borderWidth: 1,
+        borderRadius:3,
         alignSelf: 'center'
     },
     nameText: {
@@ -130,13 +119,25 @@ const styles = StyleSheet.create({
        flex:1,
        justifyContent:'flex-end',
     },
+    modalView:{
+    backgroundColor:'black',
+    height:'100%',
+    opacity:0.7
+   },
     Barcode:{
       backgroundColor:'white',
       paddingVertical:10
     },
-    shopDetail:{
-     // marginTop:10
+    shopOnline:{
+        color:'black',
+        textAlign:'center',
+        fontWeight:'800'
     },
+    shopName:{
+        color:'black',
+        textAlign:'center'
+    },
+
     scan:{
         height:80,
         width:80,

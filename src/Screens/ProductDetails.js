@@ -1,8 +1,36 @@
 import React, { Component } from "react";
-import { SafeAreaView, StyleSheet, View, Image, Text, TouchableOpacity, TextInput,ScrollView} from "react-native";
+import { SafeAreaView, StyleSheet, View, Image, Text, TouchableOpacity, TextInput,ScrollView,Alert} from "react-native";
+
+const ButtonDelete=()=>{
+    Alert.alert(
+        "Hey!",
+        "Delete The Selected Item",
+        [
+            {
+                text: "Cancel",
+               
+            },
+            { text: "OK" }
+        ]
+    );
+}
+
+const RemoveButton=()=>{
+    Alert.alert(
+        "Hey!",
+        "Remove The Selected Name",
+        [
+            {
+                text: "Cancel",
+               
+            },
+            { text: "OK" }
+        ]
+    );
+}
+
 
 class ProductDetails extends Component {
-    
     render() {
         return (
             <SafeAreaView style={styles.header}>
@@ -17,7 +45,6 @@ class ProductDetails extends Component {
                 </View>
                  <ScrollView>
                 <View style={styles.container}>
-
                     <View style={styles.mainView}>
                         <View style={styles.firstView}>
                             <View style={styles.Camera}>
@@ -29,12 +56,12 @@ class ProductDetails extends Component {
                                     <Text style={styles.randomNum}>35689873</Text>
                                 </View>
                             </View>
-                            <TouchableOpacity>
+                            <TouchableOpacity 
+                           onPress={ButtonDelete}>
                                 <Image style={styles.delete}
                                     source={require('../../Images/icons8-waste-32.png')} />
                             </TouchableOpacity>
                         </View>
-
                         <View style={styles.secondView}>
                             <View style={styles.quantity}>
                                 <Text style={styles.Quantity}>Quantity</Text>
@@ -44,7 +71,7 @@ class ProductDetails extends Component {
                                         <TextInput
                                             style={styles.input}
                                             keyboardType={"numeric"}
-                                            
+                                            maxLength={1}
                                         />
                                     </View>
                                     <TouchableOpacity style={ styles.st}
@@ -56,31 +83,35 @@ class ProductDetails extends Component {
                                     >
                                         <Text style={styles.weightKG}>KG</Text>
                                     </TouchableOpacity>
-
-
                                 </View>
                             </View>
                             <View style={styles.Price}>
                                 <Text style={styles.price}>Price(SEK)</Text>
                                 <TextInput
                                     style={styles.blackInput} 
-                                    keyboardType={"numeric"}/>
+                                    keyboardType={"numeric"}
+                                    maxLength={4}/>
                             </View>
 
                         </View>
 
                         <View style={styles.Remove}>
                             <Text style={styles.Name}>Kampanjpris</Text>
+                            <TouchableOpacity
+                            onPress={RemoveButton}>
                             <Text style={styles.remove}>Remove</Text>
+                            </TouchableOpacity>
                         </View>
                         
                         <View style={styles.thirdView}>
-                            <View style={{flexDirection:'row'}}>
+                            <View style={styles.QuanView}>
                             <Text style={styles.blackQuan}>Quantity</Text> 
 
-                            <View style={{backgroundColor:'white',width:90,height:28,marginLeft:30,borderRadius:2}}>
+                            <View style={styles.inputView}>
                              <TextInput
-                              style={styles.midInput}/>
+                              style={styles.midInput}
+                              keyboardType={"numeric"}
+                              maxLength={3}/>
                             </View>
 
                             <TouchableOpacity style={styles.st}>
@@ -92,12 +123,14 @@ class ProductDetails extends Component {
                                     </TouchableOpacity>
                             </View>
 
-                            <View style={{flexDirection:'row',marginTop:28}}>
+                            <View style={styles.fourthView}>
                             <Text style={styles.blackPri}>Price(SEK)</Text> 
 
-                            <View style={{backgroundColor:'white',width:110,height:28,marginLeft:20,borderRadius:3}}>
+                            <View style={styles.inputViewTwo}>
                              <TextInput
-                              style={styles.midInput}/>
+                              style={styles.midInput}
+                              keyboardType={"numeric"}
+                              maxLength={4}/>
                             </View>
                             </View>
 
@@ -107,19 +140,19 @@ class ProductDetails extends Component {
 
 
                 <View style={styles.container}>
-
                     <View style={styles.mainView}>
                         <View style={styles.firstView}>
                             <View style={styles.Camera}>
                                 <Image style={styles.cameraIcon}
                                     source={require('../../Images/icons8-camera-50.png')} />
                                 <View style={styles.info}>
-                                    <Text style={styles.randomText}>DAFHKDT016</Text>
+                                    <Text style={styles.randomText}>DAFHMUFFIN</Text>
                                     <Text style={styles.randomText}>APPLET&S</Text>
                                     <Text style={styles.randomNum}>35689873</Text>
                                 </View>
                             </View>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                            onPress={ButtonDelete}>
                                 <Image style={styles.delete}
                                     source={require('../../Images/icons8-waste-32.png')} />
                             </TouchableOpacity>
@@ -133,6 +166,7 @@ class ProductDetails extends Component {
                                     <View style={styles.type}>
                                         <TextInput
                                             style={styles.input}
+                                            maxLength={1}
                                         />
                                     </View>
                                     <TouchableOpacity style={styles.st}>
@@ -149,23 +183,28 @@ class ProductDetails extends Component {
                             <View style={styles.Price}>
                                 <Text style={styles.price}>Price(SEK)</Text>
                                 <TextInput
-                                    style={styles.blackInput} />
+                                    style={styles.blackInput}
+                                    maxLength={4} />
                             </View>
 
                         </View>
 
                         <View style={styles.Remove}>
                             <Text style={styles.Name}>Kampanjpris</Text>
+                           <TouchableOpacity
+                           onPress={RemoveButton}>
                             <Text style={styles.remove}>Remove</Text>
+                            </TouchableOpacity>
                         </View>
                         
                         <View style={styles.thirdView}>
-                            <View style={{flexDirection:'row'}}>
+                            <View style={styles.QuanView}>
                             <Text style={styles.blackQuan}>Quantity</Text> 
 
-                            <View style={{backgroundColor:'white',width:90,height:28,marginLeft:30,borderRadius:2}}>
+                            <View style={styles.inputViewThree}>
                              <TextInput
-                              style={styles.midInput}/>
+                              style={styles.midInput}
+                              maxLength={3}/>
                             </View>
 
                             <TouchableOpacity style={styles.st}>
@@ -177,12 +216,13 @@ class ProductDetails extends Component {
                                     </TouchableOpacity>
                             </View>
 
-                            <View style={{flexDirection:'row',marginTop:28}}>
+                            <View style={styles.fourthView}>
                             <Text style={styles.blackPri}>Price(SEK)</Text> 
 
-                            <View style={{backgroundColor:'white',width:110,height:28,marginLeft:20,borderRadius:3}}>
+                            <View style={styles.inputViewTwo}>
                              <TextInput
-                              style={styles.midInput}/>
+                              style={styles.midInput}
+                              maxLength={4}/>
                             </View>
                             </View>
 
@@ -212,7 +252,6 @@ const styles = StyleSheet.create({
     arrow: {
         height: 30,
         width: 25,
-
     },
     product: {
         fontSize: 25,
@@ -222,7 +261,6 @@ const styles = StyleSheet.create({
     },
     container: {
         backgroundColor: 'white',
-        
     },
     mainView: {
         marginHorizontal: 10,
@@ -245,10 +283,8 @@ const styles = StyleSheet.create({
     },
     Camera: {
         flexDirection: 'row',
-
     },
     cameraIcon: {
-
         height: 50,
         width: 50
     },
@@ -275,13 +311,14 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
     },
     quantity: {
-        borderColor: ('rgb(45,74,89)'),
-        borderRightWidth: 0.2,
-        width: 180,
+        borderColor:'gainsboro',
+        borderRightWidth: 1,
+        width: 185,
         paddingHorizontal: 18
     },
     Quantity: {
         color: 'grey',
+        fontSize:14,
         fontWeight: 'bold',
         marginLeft: 32
     },
@@ -318,21 +355,28 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 13,
     },
-    Price: {
-        // flexDirection:'row',
-
+    Price:{
+      flexDirection:'column'
     },
     price: {
         color: 'grey',
+        fontSize:14,
         fontWeight: 'bold',
-        marginLeft: 40
+        marginLeft: 45
+    },
+    inputViewTwo:{
+        backgroundColor:'white',
+        width:110,
+        height:28,
+        marginLeft:20,
+        borderRadius:3
     },
     blackInput: {
-        width: 100,
+        width: 85,
         borderColor: 'black',
         borderBottomWidth: 1,
-        marginTop: 15,
-        marginLeft: 30
+        marginTop:18,
+        marginLeft:40
     },
     Remove:{
         backgroundColor: ('rgb(239,249,251)'),
@@ -350,19 +394,40 @@ const styles = StyleSheet.create({
         fontWeight:'500'
     },
     thirdView:{
-        backgroundColor:('rgb(115,169,175)'),
+        backgroundColor:('rgb(195,219,222)'),
         margin:10,
         paddingVertical:20,
         borderRadius:5
+    },
+    QuanView:{
+        flexDirection:'row'
     },
     blackQuan:{
         fontWeight:'bold',
         marginLeft:25,
         marginTop:5
     },
+    inputView:{
+        backgroundColor:'white',
+        width:90,
+        height:28,
+        marginLeft:30,
+        borderRadius:2
+    },
+    inputViewThree:{
+        backgroundColor:'white',
+        width:90,
+        height:28,
+        marginLeft:30,
+        borderRadius:2
+    },
     midInput:{
         marginTop:5,
         textAlign:'center'
+    },
+    fourthView:{
+        flexDirection:'row',
+        marginTop:28
     },
     blackPri:{
         fontWeight:'bold',
@@ -373,3 +438,4 @@ const styles = StyleSheet.create({
 })
 
 export default ProductDetails;
+

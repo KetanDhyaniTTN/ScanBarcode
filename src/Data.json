@@ -3,15 +3,13 @@
     {
       "title": "Coop",
       "store": "Coop Online Goteborg Kpl",
-      
       "details": [
         {
           "selectStore": [
-            "Coop Online Goteborg Kpl",
-            "Coop Online Stockholm Kpl",
-            "Coop Online Lysekil Kpl",
-            "Coop Online Maimo Kpl"
-            
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
         
@@ -23,13 +21,12 @@
       "details": [
         {
           "selectStore": [
-            "Select Coopvhvjj",
-            "Select Coopvhh",
-            "Select Coopyuii",
-            "Select Coopknkmkm"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
-        
       ]
     },
     {
@@ -38,10 +35,10 @@
       "details": [
         {
           "selectStore": [
-            "Select Coop",
-            "Select Coop",
-            "Select Coop",
-            "Select Coop"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
       ]
@@ -52,10 +49,10 @@
       "details": [
         {
           "selectStore": [
-            "Select Coop",
-            "Select Coop",
-            "Select Coop",
-            "Select Coop"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
       ]
@@ -66,10 +63,10 @@
       "details": [
         {
           "selectStore": [
-            "Select Coop",
-            "Select Coop",
-            "Select Coop",
-            "Select Coop"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
       ]
@@ -80,10 +77,10 @@
       "details": [
         {
           "selectStore": [
-            "Select Coop",
-            "Select Coop",
-            "Select Coop",
-            "Select Coop"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
       ]
@@ -94,10 +91,10 @@
       "details": [
         {
           "selectStore": [
-            "Select Coop",
-            "Select Coop",
-            "Select Coop",
-            "Select Coop"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
       ]
@@ -108,10 +105,10 @@
       "details": [
         {
           "selectStore": [
-            "Select Coop",
-            "Select Coop",
-            "Select Coop",
-            "Select Coop"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
       ]
@@ -122,10 +119,24 @@
       "details": [
         {
           "selectStore": [
-            "Select Coop",
-            "Select Coop",
-            "Select Coop",
-            "Select Coop"
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lysekil",
+      "store": "Coop Online Goteborg Kpl",
+      "details": [
+        {
+          "selectStore": [
+            "Stora Coop",
+            "Coop",
+            "Coop Xtra",
+            "Coop Online"
           ]
         }
       ]
