@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, FlatList, Modal } from "react-native";
 import { DATA } from "../Data";
+import LinearGradient from "react-native-linear-gradient";
+
 
 const SelectStore = ({ navigation}) => {
     const [showModal, setshowModal] = useState(false)
     return (
+        <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[('rgb(49,58,85)'),('rgb(45,75,89)'), '(rgb(44,87,94)']} style={styles.linearGradient}>
         <SafeAreaView style={styles.header}>
             <View style={styles.headerView}>
 
@@ -46,6 +49,7 @@ const SelectStore = ({ navigation}) => {
 
                 </Modal>
             </View>
+            <View style={styles.viewStores}>
             <FlatList style={styles.flatView}
                 data={DATA}
                 renderItem={({ item }) => {
@@ -57,13 +61,15 @@ const SelectStore = ({ navigation}) => {
                         </TouchableOpacity>
                     )
                 }} />
+                </View>
         </SafeAreaView>
+        </LinearGradient>
     )
 }
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: ('rgb(45,74,89)'),
+        // backgroundColor: ('rgb(45,74,89)'),
     },
     headerView:{
         flexDirection:'row',
@@ -90,17 +96,19 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         marginLeft: 10
     },
-    flatView: {
+    viewStores:{
         backgroundColor: 'white',
         height: '100%',
-        
+    },
+    
+    flatView: {
+        marginTop:10
     },
     buttonStore: {
-        shadowOpacity:0.3,
+        shadowOpacity:0.2,
         shadowOffset:{width:1,height:1},
         margin: 10,
-        marginTop:20,
-        paddingVertical:10,
+        paddingVertical:14,
         width: '90%',
         backgroundColor: 'white',
         borderRadius:3,
@@ -108,12 +116,13 @@ const styles = StyleSheet.create({
     },
     nameText: {
         color: 'black',
-        marginLeft: 10,
-        fontWeight: 'bold'
+        marginLeft: 15,
+        fontWeight: '700'
     },
     titleText: {
         marginLeft: 10,
-        marginTop: 5
+        marginTop:5,
+        marginLeft:15
     },
     firstView:{
        flex:1,

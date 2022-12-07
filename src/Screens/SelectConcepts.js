@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import { SafeAreaView, View, Text, StyleSheet, Image, FlatList, TouchableOpacity, StatusBar,Alert } from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, Image, FlatList, TouchableOpacity, StatusBar, Alert } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 import { connect } from "react-redux";
 import { showData } from "../Redux/Actions/Action";
 
-const ShowList=()=>{
+const ShowList = () => {
     Alert.alert(
         "Hey!",
         "Go To The StoreList",
         [
             {
                 text: "Cancel",
-               
+
             },
             { text: "OK" }
         ]
@@ -38,23 +39,21 @@ class Home extends Component {
         const { show } = this.props
         return (
 
+            <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[('rgb(49,58,85)'),('rgb(45,75,89)'), '(rgb(44,87,94)']} style={styles.linearGradient}>
             <SafeAreaView style={styles.header}>
-                <StatusBar barStyle={'light-content'}/>
+                <StatusBar barStyle={'light-content'} />
                 <View style={styles.headerView}>
-
                     <Text style={styles.SelectConcept}>Select Concept</Text>
-
                     <View style={styles.rightView}>
                         <Image style={styles.search}
                             source={require('../../Images/icons8-search-30.png')} />
 
                         <TouchableOpacity
-                        onPress={ShowList}>
-                        <Image style={styles.search}
-                            source={require('../../Images/icons8-menu-vertical-30.png')} />
+                            onPress={ShowList}>
+                            <Image style={styles.search}
+                                source={require('../../Images/icons8-menu-vertical-30.png')} />
                         </TouchableOpacity>
                     </View>
-
                 </View>
 
                 <View style={styles.mainView}>
@@ -91,6 +90,7 @@ class Home extends Component {
                 </View>
 
             </SafeAreaView>
+            </LinearGradient>
         )
     }
 }
@@ -106,7 +106,10 @@ const mapDispatchToProps = {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: ('rgb(45,74,89)'),
+        // backgroundColor: ('rgb(45,74,89)'),
+    },
+    linearGradient:{
+        flex:1
     },
     headerView: {
         flexDirection: 'row',
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
     storeView: {
         flexDirection: 'column',
         marginTop: 5,
-        marginHorizontal:6,
+        marginHorizontal: 6,
         width: 350,
     },
 
@@ -189,9 +192,9 @@ const styles = StyleSheet.create({
     flatTitle: {
         color: ('rgb(48,59,85)'),
         fontWeight: '500',
-        marginLeft:15,
+        marginLeft: 15,
     },
-   
+
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 

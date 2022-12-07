@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { SafeAreaView, StyleSheet, View, Image, Text, TouchableOpacity, TextInput,ScrollView,Alert} from "react-native";
-
+import LinearGradient from "react-native-linear-gradient";
 const ButtonDelete=()=>{
     Alert.alert(
         "Hey!",
@@ -33,6 +33,8 @@ const RemoveButton=()=>{
 class ProductDetails extends Component {
     render() {
         return (
+
+            <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[('rgb(49,58,85)'),('rgb(45,75,89)'), '(rgb(44,87,94)']} style={styles.linearGradient}>
             <SafeAreaView style={styles.header}>
                 <View style={styles.topView}>
                     <TouchableOpacity 
@@ -237,12 +239,13 @@ class ProductDetails extends Component {
                 </View>
                 </ScrollView>
             </SafeAreaView>
+            </LinearGradient>
         )
     }
 }
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: ('rgb(45,74,89)'),
+       // backgroundColor: ('rgb(45,74,89)'),
     },
     topView: {
         flexDirection: 'row',
@@ -439,3 +442,4 @@ const styles = StyleSheet.create({
 
 export default ProductDetails;
 
+// ('rgb(46,67,87)'),
