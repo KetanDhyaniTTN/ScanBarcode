@@ -1,27 +1,55 @@
 import React, { Component } from "react";
-import { SafeAreaView,View,Modal,Text,TouchableOpacity,StyleSheet} from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { SafeAreaView,Text,TouchableOpacity,StyleSheet} from "react-native";
+
 
 class Practice extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+        activeBtn:'Home'
+    };
+}
+
+
   render(){
     return(
-      
-        <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['blue',  'red']} style={styles.linearGradient}>
-          <SafeAreaView>
-        <View>
-        <Text style={styles.buttonText}>
-    Sign in with Facebook
-  </Text>
-        </View>
+          <SafeAreaView style={styles.mainView}>
+
+        <TouchableOpacity style={[styles.buttonTwo,this.state.activeBtn==='Home' ? styles.buttonOne:null]}
+          onPress={() => {
+            this.setState({
+                activeBtn: 'Home'
+            })
+        }}  
+      >
+            <Text>Ketan</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.buttonTwo,this.state.activeBtn==='Watch' ? styles.buttonOne:null]}
+        onPress={() => {
+          this.setState({
+              activeBtn: 'Watch'
+          })
+      }}>
+          <Text>Ketan</Text>
+        </TouchableOpacity>
         </SafeAreaView>
-        </LinearGradient>
+       
      
     )
   }
 }
 const styles=StyleSheet.create({
-    buttonText:{
-      color:'white'
-    }
+     mainView:{
+      flexDirection:'row',
+      justifyContent:'space-around',
+      alignContent:'center'
+     },
+     buttonOne:{
+      backgroundColor:'grey'
+     },
+     buttonTwo:{
+      backgroundColor:'violet'
+     }
 })
 export default Practice;

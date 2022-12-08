@@ -39,57 +39,61 @@ class Home extends Component {
         const { show } = this.props
         return (
 
-            <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[('rgb(49,58,85)'),('rgb(45,75,89)'), '(rgb(44,87,94)']} style={styles.linearGradient}>
-            <SafeAreaView style={styles.header}>
-                <StatusBar barStyle={'light-content'} />
-                <View style={styles.headerView}>
-                    <Text style={styles.SelectConcept}>Select Concept</Text>
-                    <View style={styles.rightView}>
-                        <Image style={styles.search}
-                            source={require('../../Images/icons8-search-30.png')} />
+            <LinearGradient start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                colors={[('rgb(49,58,85)'), ('rgb(45,75,89)'), '(rgb(44,87,94)']}>
 
-                        <TouchableOpacity
-                            onPress={ShowList}>
+
+                <SafeAreaView style={styles.header}>
+                    <StatusBar barStyle={'light-content'} />
+                    <View style={styles.headerView}>
+                        <Text style={styles.SelectConcept}>Select Concept</Text>
+                        <View style={styles.rightView}>
                             <Image style={styles.search}
-                                source={require('../../Images/icons8-menu-vertical-30.png')} />
-                        </TouchableOpacity>
+                                source={require('../../Images/icons8-search-30.png')} />
+
+                            <TouchableOpacity
+                                onPress={ShowList}>
+                                <Image style={styles.search}
+                                    source={require('../../Images/icons8-menu-vertical-30.png')} />
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                </View>
 
-                <View style={styles.mainView}>
-                    <FlatList style={styles.flatTop}
-                        data={show.data}
-                        renderItem={({ item, index }) => {
-                            return (
-                                <View style={styles.flatView}>
-                                    <View style={styles.Showbuttons}>
-                                        <TouchableOpacity style={styles.button}
-                                            onPress={() => this.ButtonClick(index)}>
-                                            <Text style={styles.textTitle}>{item.title}</Text>
-                                            <Image style={styles.arrowDown} source={this.state.index === index && this.state.click ? require('../../Images/less.png') : require('../../Images/more.png')} />
-                                        </TouchableOpacity>
+                    <View style={styles.mainView}>
+                        <FlatList style={styles.flatTop}
+                            data={show.data}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <View style={styles.flatView}>
+                                        <View style={styles.Showbuttons}>
+                                            <TouchableOpacity style={styles.button}
+                                                onPress={() => this.ButtonClick(index)}>
+                                                <Text style={styles.textTitle}>{item.title}</Text>
+                                                <Image style={styles.arrowDown} source={this.state.index === index && this.state.click ? require('../../Images/less.png') : require('../../Images/more.png')} />
+                                            </TouchableOpacity>
 
-                                        {(this.state.click && this.state.index === index) &&
+                                            {(this.state.click && this.state.index === index) &&
 
-                                            <FlatList
-                                                data={item.details[0].selectStore}
-                                                renderItem={({ item }) => {
-                                                    return (
-                                                        <View style={styles.storeView}>
-                                                            <TouchableOpacity style={styles.storeTitle}
-                                                                onPress={() => this.props.navigation.navigate('SelectStore')}>
-                                                                <Text style={styles.flatTitle}>{item}</Text>
-                                                            </TouchableOpacity>
-                                                        </View>
-                                                    )
-                                                }} />}
+                                                <FlatList
+                                                    data={item.details[0].selectStore}
+                                                    renderItem={({ item }) => {
+                                                        return (
+                                                            <View style={styles.storeView}>
+                                                                <TouchableOpacity style={styles.storeTitle}
+                                                                    onPress={() => this.props.navigation.navigate('SelectStore')}>
+                                                                    <Text style={styles.flatTitle}>{item}</Text>
+                                                                </TouchableOpacity>
+                                                            </View>
+                                                        )
+                                                    }} />}
+                                        </View>
                                     </View>
-                                </View>
-                            )
-                        }} />
-                </View>
+                                )
+                            }} />
+                    </View>
 
-            </SafeAreaView>
+                </SafeAreaView>
             </LinearGradient>
         )
     }
@@ -108,8 +112,8 @@ const styles = StyleSheet.create({
     header: {
         // backgroundColor: ('rgb(45,74,89)'),
     },
-    linearGradient:{
-        flex:1
+    linearGradient: {
+        flex: 1
     },
     headerView: {
         flexDirection: 'row',

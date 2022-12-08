@@ -7,7 +7,9 @@ import LinearGradient from "react-native-linear-gradient";
 const SelectStore = ({ navigation}) => {
     const [showModal, setshowModal] = useState(false)
     return (
-        <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[('rgb(49,58,85)'),('rgb(45,75,89)'), '(rgb(44,87,94)']} style={styles.linearGradient}>
+        <LinearGradient start={{x: 0, y: 0}} 
+        end={{x: 1, y: 0}} 
+        colors={[('rgb(49,58,85)'),('rgb(45,75,89)'),'(rgb(44,87,94)']}>
         <SafeAreaView style={styles.header}>
             <View style={styles.headerView}>
 
